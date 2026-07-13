@@ -82,6 +82,27 @@ public final class LootManager {
 
         return pool;
     }
+/*
+ * ==========================
+ * COPPER ORE
+ * ==========================
+ */
+if (block == Blocks.COPPER_ORE || block == Blocks.DEEPSLATE_COPPER_ORE) {
+
+    pool.add(new LootReward(new ItemStack(Items.BREAD, 4), 15));
+    pool.add(new LootReward(new ItemStack(Items.COOKED_PORKCHOP, 6), 13));
+    pool.add(new LootReward(new ItemStack(Items.COPPER_INGOT, 24), 15));
+    pool.add(new LootReward(new ItemStack(Items.IRON_INGOT, 8), 12));
+    pool.add(new LootReward(new ItemStack(Items.GOLD_INGOT, 6), 10));
+    pool.add(new LootReward(new ItemStack(Items.SHIELD), 10));
+    pool.add(new LootReward(new ItemStack(Items.CROSSBOW), 8));
+    pool.add(new LootReward(new ItemStack(Items.EMERALD, 4), 8));
+    pool.add(new LootReward(new ItemStack(Items.GOLDEN_APPLE), 5));
+    pool.add(new LootReward(new ItemStack(Items.DIAMOND, 2), 4));
+
+    return pool;
+}
+
 
     /*
      * ==========================
@@ -114,7 +135,7 @@ public final class LootManager {
             || block == Blocks.REDSTONE_ORE
             || block == Blocks.DEEPSLATE_REDSTONE_ORE
             || block == Blocks.LAPIS_ORE
-            || block == Blocks.DEEPSLATE_LAPIS_ORE) {
+            || block == Blocks.DEEPSLATE_LAPIS_ORE || block == Blocks.NETHER_GOLD_ORE) {
 
         pool.add(new LootReward(new ItemStack(Items.GOLD_INGOT, 18), 15));
         pool.add(new LootReward(new ItemStack(Items.DIAMOND, 5), 13));
