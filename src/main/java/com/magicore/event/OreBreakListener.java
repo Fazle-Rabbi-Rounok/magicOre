@@ -2,12 +2,22 @@ package com.magicore.event;
 
 import com.magicore.MagicOre;
 import com.magicore.manager.OreManager;
+import com.magicore.loot.LootManager;
+
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+
 import net.minecraft.core.BlockPos;
+
+import net.minecraft.server.level.ServerLevel;
+
 import net.minecraft.world.entity.player.Player;
+
 import net.minecraft.world.level.Level;
+
 import net.minecraft.world.level.block.Block;
+
 import net.minecraft.world.level.block.entity.BlockEntity;
+
 import net.minecraft.world.level.block.state.BlockState;
 
 public final class OreBreakListener {
@@ -36,10 +46,13 @@ public final class OreBreakListener {
         }
 
         MagicOre.LOGGER.info(
-                "{} mined {} at {}",
+                "{} mined {}",
                 player.getName().getString(),
-                block.getName().getString(),
-                pos
+                block.getName().getString()
         );
+
+        if (level instanceof ServerLevel serverLevel) {
+            LootManager.dropLoot(serverLevel, pos, block);
+        }
     }
 }
